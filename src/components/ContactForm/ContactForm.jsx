@@ -11,6 +11,7 @@ const validation = Yup.object().shape({
 const ContactForm = ({ addContact }) => {
   const nameId = useId();
   const numberId = useId();
+
   return (
     <Formik
       initialValues={{ name: "", number: "" }}
@@ -37,8 +38,8 @@ const ContactForm = ({ addContact }) => {
           name="number"
           placeholder="enter your number"
         />
-
         <ErrorMessage name="number" component="span" />
+
         <button type="submit">Add contact</button>
       </Form>
     </Formik>

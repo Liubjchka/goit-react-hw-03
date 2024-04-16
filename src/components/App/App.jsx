@@ -14,14 +14,23 @@ const data = [
 const App = () => {
   const [contacts, setContacts] = useState(data);
   const [filter, setFilter] = useState("");
+
   const getFilter = (value) => {
     setFilter(value);
   };
+
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
+
   const addContact = (contact) => {
     setContacts((prevContacts) => [...prevContacts, contact]);
+  };
+
+  const deleteContact = (id) => {
+    setContacts((prevContacts) =>
+      prevContacts.filter((contact) => contact.id !== id)
+    );
   };
 
   return (
@@ -29,7 +38,7 @@ const App = () => {
       <h1>Phonebook</h1>
       <ContactForm addContact={addContact} />
       <SearchBox filter={filter} getFilter={getFilter} />
-      <ContactList contacts={filteredContacts} />
+      <ContactList contacts={filteredContacts} deleteContact={deleteContact} />
     </div>
   );
 };
