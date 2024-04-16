@@ -2,8 +2,7 @@
   display: flex;
   justify-content: space-between;
   width: 250px;
-  /* width: calc((100% - 48px) / 4); */
-  border: 1px solid rgb(35, 35, 35);
+  border: 1.5px solid black;
   border-radius: 4px;
 }
 
@@ -11,4 +10,8 @@
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 8px;
+}
+
+.icons {
+  margin-right: 4px;
 }

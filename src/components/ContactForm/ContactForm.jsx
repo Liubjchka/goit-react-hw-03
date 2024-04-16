@@ -6,8 +6,14 @@ import { useId } from "react";
 import css from "./ContactForm.module.css";
 
 const validation = Yup.object().shape({
-  name: Yup.string().min(3).max(50).required(),
-  number: Yup.string().min(3).max(50).required(),
+  name: Yup.string()
+    .min(3, "Must be more than 3 characters")
+    .max(50, "Must be less than 50 characters")
+    .required("Required"),
+  number: Yup.string()
+    .min(3, "Must be more than 3 characters")
+    .max(50, "Must be less than 50 characters")
+    .required("Required"),
 });
 
 const ContactForm = ({ addContact }) => {
@@ -25,28 +31,40 @@ const ContactForm = ({ addContact }) => {
     >
       <Form className={css.form}>
         <label className={css.label} htmlFor={nameId}>
-          name
+          Name
           <Field
+            className={css.input}
             id={nameId}
             type="text"
             name="name"
-            placeholder="enter your name"
+            // placeholder="enter your name"
           />
-          <ErrorMessage name="name" component="span" />
+          <ErrorMessage
+            className={css.errorMsg}
+            name="number"
+            component="span"
+          />
         </label>
 
-        <label htmlFor={numberId}>
-          number
+        <label className={css.label} htmlFor={numberId}>
+          Number
           <Field
+            className={css.input}
             id={numberId}
             type="tel"
             name="number"
-            placeholder="enter your number"
+            // placeholder="enter your number"
           />
-          <ErrorMessage name="number" component="span" />
+          <ErrorMessage
+            className={css.errorMsg}
+            name="number"
+            component="span"
+          />
         </label>
 
-        <button type="submit">Add contact</button>
+        <button className={css.mainBtn} type="submit">
+          Add contact
+        </button>
       </Form>
     </Formik>
   );

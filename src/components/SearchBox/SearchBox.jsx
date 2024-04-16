@@ -6,7 +6,7 @@ const SearchBox = ({ filter, getFilter }) => {
   };
 
   return (
-    <div>
+    <div className={css.box}>
       <p>Find contacts by name</p>
       <input
         className={css.input}
