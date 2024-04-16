@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ContactForm from "../ContactForm/ContactForm";
 import ContactList from "../ContactList/ContactList";
 import SearchBox from "../SearchBox/SearchBox";
@@ -12,7 +12,9 @@ const data = [
 ];
 
 const App = () => {
-  const [contacts, setContacts] = useState(data);
+  const [contacts, setContacts] = useState(data, () => {
+    return JSON.parse(localStorage.getItem("contacts")) || [];
+  });
   const [filter, setFilter] = useState("");
 
   const getFilter = (value) => {
@@ -32,6 +34,10 @@ const App = () => {
       prevContacts.filter((contact) => contact.id !== id)
     );
   };
+
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
 
   return (
     <div>
