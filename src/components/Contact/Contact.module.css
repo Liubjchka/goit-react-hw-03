@@ -1,0 +1,14 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+  /* width: calc((100% - 48px) / 4); */
+  border: 1px solid rgb(35, 35, 35);
+  border-radius: 4px;
+}
+
+.text {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 8px;
+}

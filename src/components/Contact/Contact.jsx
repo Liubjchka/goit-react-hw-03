@@ -1,15 +1,19 @@
+import css from "./Contact.module.css";
+
 const Contact = ({ id, name, number, deletedContact }) => {
   return (
-    <li>
-      <p>{name}</p>
-      <p>{number}</p>
+    <li className={css.item}>
+      <div className={css.text}>
+        <p>{name}</p>
+        <p>{number}</p>
+      </div>
       <button
         onClick={() => {
           deletedContact(id);
         }}
         type="button"
       >
-        delete
+        Delete
       </button>
     </li>
   );

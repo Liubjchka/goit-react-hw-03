@@ -1,3 +1,5 @@
+import css from "./SearchBox.module.css";
+
 const SearchBox = ({ filter, getFilter }) => {
   const handleChange = (event) => {
     getFilter(event.target.value);
@@ -6,7 +8,12 @@ const SearchBox = ({ filter, getFilter }) => {
   return (
     <div>
       <p>Find contacts by name</p>
-      <input type="text" onChange={handleChange} value={filter} />
+      <input
+        className={css.input}
+        type="text"
+        onChange={handleChange}
+        value={filter}
+      />
     </div>
   );
 };
